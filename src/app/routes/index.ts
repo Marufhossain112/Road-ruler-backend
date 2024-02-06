@@ -1,17 +1,17 @@
 import express from 'express'
-import { userRoutes } from '../modules/User/user.route'
-import { documentRoutes } from '../modules/Document/document.route'
+import { UserRoutes } from '../modules/User/user.route'
+import { ProfileRoutes } from '../modules/Profile/profile.route'
 
 const router = express.Router()
 
 const moduleRoutes = [
   {
     path: '/users',
-    route: userRoutes,
+    route: UserRoutes,
   },
   {
-    path: '/documents',
-    route: documentRoutes,
+    path: '/profiles',
+    route: ProfileRoutes,
   },
 ]
 

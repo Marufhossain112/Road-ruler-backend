@@ -11,4 +11,4 @@ router.post("/refresh-token", UserController.refreshToken);
 
 router.get("/my-profile", UserController.myProfileController);
 
-export const userRoutes = router;
+export const UserRoutes = router;
