@@ -1,23 +1,17 @@
 export type ILoginUser = {
-  email: string;
-  password: string;
-};
-
-export type ILoginUserResponse = {
-  accessToken: string;
-  refreshToken?: string;
-  user: {
-    name?: string;
-    email?: string;
-  };
-};
+  email: string
+  password: string
+}
 
 export type IRefreshTokenResponse = {
-  accessToken: string;
-};
+  accessToken: string
+}
 
 export type IMyProfile = {
-  password?: string;
-  name: string;
-  email: string;
-};
+  password?: string
+  name: string
+  email: string
+}
+export type Role = 'admin' | 'user'
+
+export const Roles: Role[] = ['admin', 'user']

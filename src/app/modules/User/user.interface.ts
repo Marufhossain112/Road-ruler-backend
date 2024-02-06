@@ -1,4 +1,5 @@
 import { Model, Types } from 'mongoose'
+import { Role } from './user.constant'
 
 export type IUser = {
   name: string
@@ -6,6 +7,7 @@ export type IUser = {
   password: string
   address: string
   contact_details: string
+  role: Role
 }
 
 export type IUserExist = {
@@ -14,6 +16,7 @@ export type IUserExist = {
   name: string
   address: string
   contact_details: string
+  role: string
   _id: Types.ObjectId | undefined
 }
 
@@ -23,7 +26,13 @@ export type UserModel = {
   ): Promise<
     Pick<
       IUserExist,
-      '_id' | 'email' | 'name' | 'password' | 'address' | 'contact_details'
+      | '_id'
+      | 'email'
+      | 'name'
+      | 'password'
+      | 'address'
+      | 'contact_details'
+      | 'role'
     >
   >
 
