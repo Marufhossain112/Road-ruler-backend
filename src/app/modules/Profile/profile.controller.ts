@@ -16,6 +16,40 @@ const createProfile = catchAsync(async (req: Request, res: Response) => {
   })
 })
 
+const getSingleProfileByUserId = catchAsync(
+  async (req: Request, res: Response) => {
+    const { user_id } = req.params
+    const result = await ProfileService.getSingleProfileByUserId(user_id)
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Single profile fetched by user id successfully',
+      data: result,
+    })
+  }
+)
+
+const updateSingleProfileByUserId = catchAsync(
+  async (req: Request, res: Response) => {
+    const { user_id } = req.params
+    const { ...userUpdateData } = req.body
+    const result = await ProfileService.updateSingleProfileByUserId(
+      user_id,
+      userUpdateData
+    )
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'Single profile updated by user id successfully',
+      data: result,
+    })
+  }
+)
+
 export const ProfileController = {
   createProfile,
+  getSingleProfileByUserId,
+  updateSingleProfileByUserId,
 }

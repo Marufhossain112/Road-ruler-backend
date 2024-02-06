@@ -9,5 +9,15 @@ router.post(
   auth(ENUM_USER_ROLE.USER),
   ProfileController.createProfile
 )
+router.get(
+  '/:user_id',
+  auth(ENUM_USER_ROLE.USER),
+  ProfileController.getSingleProfileByUserId
+)
+router.put(
+  '/update/:user_id',
+  auth(ENUM_USER_ROLE.USER),
+  ProfileController.updateSingleProfileByUserId
+)
 
 export const ProfileRoutes = router
