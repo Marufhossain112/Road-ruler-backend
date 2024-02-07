@@ -27,8 +27,22 @@ const getSingleAnswer = catchAsync(async (req: Request, res: Response) => {
     data: result,
   })
 })
+const getAllAnswersByUserId = catchAsync(
+  async (req: Request, res: Response) => {
+    const { user_id } = req.params
+    const result = await AnswerService.getAllAnswersByUserId(user_id)
+
+    sendResponse(res, {
+      statusCode: httpStatus.OK,
+      success: true,
+      message: 'All Answers fetched by user id successfully',
+      data: result,
+    })
+  }
+)
 
 export const AnswerController = {
   createAnswer,
   getSingleAnswer,
+  getAllAnswersByUserId,
 }

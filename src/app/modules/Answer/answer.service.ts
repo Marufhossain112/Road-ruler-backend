@@ -29,8 +29,20 @@ const getSingleAnswer = async (user_id: string, question_id: string) => {
   ])
   return result
 }
+const getAllAnswersByUserId = async (user_id: string) => {
+  const result = await Answer.find({ user_id }).populate([
+    {
+      path: 'user_id',
+    },
+    {
+      path: 'question_id',
+    },
+  ])
+  return result
+}
 
 export const AnswerService = {
   createAnswer,
   getSingleAnswer,
+  getAllAnswersByUserId,
 }

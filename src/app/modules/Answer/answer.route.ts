@@ -14,5 +14,10 @@ router.get(
   auth(ENUM_USER_ROLE.USER),
   AnswerController.getSingleAnswer
 )
+router.get(
+  '/:user_id',
+  auth(ENUM_USER_ROLE.USER),
+  AnswerController.getAllAnswersByUserId
+)
 
 export const AnswerRoutes = router
