@@ -10,6 +10,11 @@ const resultSchema = new Schema<IResult>(
       ref: 'User',
       required: true,
     },
+    license: {
+      type: Schema.Types.ObjectId,
+      ref: 'License',
+      required: true,
+    },
     score: {
       type: Number,
       required: true,
